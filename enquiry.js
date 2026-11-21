@@ -61,3 +61,32 @@
     window.open('https://wa.me/'+wb.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
   })}
 })();
+
+/* products drop-down, site search, enquiry type */
+(function(){
+  document.querySelectorAll('.dd-btn').forEach(function(b){
+    var li=b.closest('.has-dd');
+    b.addEventListener('click',function(ev){ev.stopPropagation();var o=!li.classList.contains('dd-open');li.classList.toggle('dd-open',o);b.setAttribute('aria-expanded',o)});
+    document.addEventListener('click',function(ev){if(!li.contains(ev.target)){li.classList.remove('dd-open');b.setAttribute('aria-expanded',false)}});
+  });
+  var ov=document.getElementById('search-ov'),sq=document.getElementById('sq'),res=document.getElementById('sres'),idx=null,last=null;
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+  function norm(t){return (t||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+  function load(){if(idx)return Promise.resolve(idx);return fetch('/search.json').then(function(r){return r.json()}).then(function(d){d.forEach(function(x){x.n=norm(x.t+' '+x.c+' '+x.k);x.h=norm(x.t)});idx=d;return d})}
+  function run(){
+    var q=norm(sq.value.trim());if(!q){res.innerHTML='';return}
+    load().then(function(d){
+      var w=q.split(/\s+/),hits=d.filter(function(x){return w.every(function(t){return x.n.indexOf(t)>-1})});
+      hits.sort(function(a,b){var sa=(a.h.indexOf(w[0])>-1?0:1)+(a.c==="Buyer's guide"?.5:0),sb=(b.h.indexOf(w[0])>-1?0:1)+(b.c==="Buyer's guide"?.5:0);return sa-sb});
+      res.innerHTML=hits.length?hits.slice(0,12).map(function(x){return '<li><a href="'+x.u+'"><strong>'+esc(x.t)+'</strong><span>'+esc(x.c)+'</span></a></li>'}).join(''):'<li class="muted">No matches. Try another word, or <a href="/contact#quote">ask us directly</a>.</li>';
+    });
+  }
+  function open(o){if(!ov)return;ov.hidden=!o;document.body.classList.toggle('enq-open',o);if(o){last=document.activeElement;load();setTimeout(function(){sq.focus()},10)}else if(last)last.focus()}
+  document.querySelectorAll('.search-btn').forEach(function(b){b.addEventListener('click',function(){open(true)})});
+  if(ov){ov.addEventListener('click',function(ev){if(ev.target===ov||ev.target.closest('.search-close'))open(false);if(ev.target.closest('.search-res a'))open(false)});
+    sq.addEventListener('input',run);
+    document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!ov.hidden)open(false);if(ev.key==='/'&&ov.hidden&&!/input|textarea|select/i.test((document.activeElement||{}).tagName||'')){ev.preventDefault();open(true)}});}
+  var k=document.getElementById('f-kind'),t=new URLSearchParams(location.search).get('type');
+  if(k&&t==='sample')k.value='Samples';
+  var m=document.getElementById('f-msg');if(m&&t==='sample'&&!m.value)m.value='Sample request. Product: '+(new URLSearchParams(location.search).get('product')||'')+'\nDelivery address/city: ';
+})();

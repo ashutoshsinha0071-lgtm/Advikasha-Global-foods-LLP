@@ -493,3 +493,12 @@ body.enq-open{overflow:hidden}
   .dd{display:none}
   .has-dd.dd-open .dd{display:block}
 }
+/* ---- v15: header never overlaps the logo ---- */
+.nav .brand{flex:none}
+.nav .nav-links{min-width:0;flex-wrap:nowrap;gap:0}
+.nav-links a:not(.btn){padding:8px 9px;font-size:.90625rem}
+.nav-links>li:last-child{margin-left:8px}
+.dd-btn{margin-left:0;width:20px}
+.has-dd>a{padding-right:4px!important}
+.nav .search-btn{margin-left:12px}
+@media (max-width:1280px){.brand .b-mark{height:48px}.brand .b-word{height:29px}.nav-links a:not(.btn){padding:8px 7px;font-size:.875rem}.nav-links .btn{padding:0 14px;font-size:.875rem}}

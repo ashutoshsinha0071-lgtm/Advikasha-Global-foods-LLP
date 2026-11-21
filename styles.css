@@ -626,3 +626,9 @@ p+.rowlist,.prose+.rowlist{margin-top:28px}
 .site-footer{padding-bottom:168px}
 @media (max-width:760px){.site-footer{padding-bottom:150px}}
 .enq-fab{border:1px solid rgba(224,196,138,.55)}
+/* ---- v15.2: keep floating buttons clear of the bottom-right corner (Netlify badge area) ---- */
+@media (min-width:761px){
+  .wa-float{bottom:88px}
+  .enq-fab{bottom:158px}
+  .site-footer{padding-bottom:236px}
+}

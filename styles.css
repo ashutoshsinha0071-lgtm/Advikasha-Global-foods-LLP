@@ -619,3 +619,10 @@ h1 em,h2 em{font-style:italic}
 .rowlist li{display:block!important}
 p+.rowlist,.prose+.rowlist{margin-top:28px}
 .rowlist{column-gap:40px;row-gap:8px}
+/* ---- v15.1: floating buttons never cover the footer ---- */
+.enq-fab{right:20px;bottom:88px}
+.site-footer{padding-bottom:120px}
+@media (max-width:760px){.enq-fab{right:12px;bottom:calc(84px + env(safe-area-inset-bottom))}.site-footer{padding-bottom:96px}}
+.site-footer{padding-bottom:168px}
+@media (max-width:760px){.site-footer{padding-bottom:150px}}
+.enq-fab{border:1px solid rgba(224,196,138,.55)}

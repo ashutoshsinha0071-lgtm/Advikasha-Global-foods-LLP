@@ -68,3 +68,45 @@
 
 /* Match the v15 display typeface */
 .ab-title{font-family:var(--font-display,'Cormorant Garamond',Georgia,serif);font-weight:500;letter-spacing:-.01em;line-height:1.05}
+
+/* Trade Pro skin for the rotating banners */
+.ab-rotator{background:#fff;color:var(--tp-ink,#33413B);border-bottom:1px solid var(--tp-line,#E3EAE6)}
+.ab-slide{background:#fff}
+.ab-slide::after{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 26%,rgba(255,255,255,.5) 44%,rgba(255,255,255,0) 60%)}
+.ab-product::after{background:linear-gradient(90deg,#fff 0%,#fff 36%,rgba(255,255,255,.75) 44%,rgba(255,255,255,0) 54%)}
+.ab-tag{color:var(--tp-gold-deep,#8C6E3C);font-weight:700;font-size:13px}
+.ab-title{font-family:var(--font-head,'Manrope',sans-serif);font-weight:800;letter-spacing:-.025em;color:var(--tp-teal,#0B6660)}
+.ab-description{color:var(--tp-muted,#5D6A64)}
+.ab-cta{background:var(--tp-teal,#0B6660);border-color:var(--tp-teal,#0B6660);border-radius:8px;font-family:var(--font-head,'Manrope',sans-serif);font-weight:700}
+.ab-cta:hover{background:var(--tp-teal-700,#095550);border-color:var(--tp-teal-700,#095550)}
+.ab-cta:focus-visible{outline:2px solid var(--tp-teal,#0B6660);outline-offset:3px}
+.ab-nav button{border-color:var(--tp-line-strong,#CFDAD5);background:#fff;color:var(--tp-teal,#0B6660)}
+.ab-nav button:hover{background:var(--tp-sage,#F1F6F3);border-color:var(--tp-teal,#0B6660)}
+.ab-nav button:focus-visible{outline:2px solid var(--tp-teal,#0B6660);outline-offset:2px}
+.ab-dot span{background:#A9BDB5}
+.ab-dot[aria-current="true"] span{background:var(--tp-teal,#0B6660)}
+.ab-count{color:var(--tp-teal,#0B6660);font-weight:600}
+@media (max-width:760px){
+  .ab-slide,.ab-compact .ab-slide{background:#fff}
+  .ab-product .ab-photo{background:#fff}
+}
+
+/* home: banners shown inside the hero panel */
+.tp-hero .ab-rotator{border:1px solid var(--tp-line,#E3EAE6);border-radius:14px;max-width:none;box-shadow:0 2px 6px rgba(11,102,96,.06),0 18px 40px -14px rgba(11,102,96,.24)}
+@media (min-width:761px){
+.tp-hero .ab-slide{height:clamp(420px,36vw,540px)}
+.tp-hero .ab-slide::after{display:none}
+.tp-hero .ab-photo{position:absolute;left:0;right:0;top:0;bottom:auto;width:100%;height:62%}
+.tp-hero .ab-photo img{width:100%;height:100%;object-fit:cover}
+.tp-hero .ab-copy{position:absolute;left:0;right:0;top:62%;bottom:0;z-index:2;width:auto;height:auto;min-height:0;padding:16px 24px 64px;justify-content:flex-start;background:#fff;border-top:1px solid var(--tp-line,#E3EAE6)}
+.tp-hero .ab-title{font-size:clamp(20px,1.7vw,26px);margin:0 0 6px;max-width:28ch}
+.tp-hero .ab-description{font-size:15px;margin:0;max-width:52ch}
+.tp-hero .ab-cta{position:absolute;right:24px;bottom:14px}
+.tp-hero .ab-cta{min-height:40px;padding:8px 16px;font-size:14px}
+.tp-hero .ab-nav{left:24px;right:24px;bottom:14px;top:auto}
+.tp-hero .ab-nav button{min-width:36px;min-height:36px}
+.tp-hero .ab-nav .ab-toggle{min-width:76px;padding:0 12px;font-size:13px}
+}
+
+.tp-hero .ab-tag{display:none}
+@media (max-width:760px){.tp-hero .ab-count{display:none}.tp-hero .ab-nav{gap:6px}.tp-hero .ab-copy{padding-bottom:84px}}

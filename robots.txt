@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://advikasha.com/sitemap.xml
+Sitemap: https://advikasha.com/sitemap-insights.xml

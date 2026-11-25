@@ -1,3 +1,46 @@
 /request-quote /contact#quote 301
 /home / 301
 /catalogue /downloads/Advikasha-Product-Catalogue-Nov-2026.pdf 302
+
+# Buyer insights merged into blog guides (Nov 2026)
+/insights /blog 301
+/insights/ /blog 301
+/insights/date-d1-peanut-butter-choc-crunch /stuffed-dates 301
+/insights/date-d1-peanut-butter-choc-crunch/* /stuffed-dates 301
+/insights/gummy-01-multivitamin-and-minerals-gummy /products/gummies 301
+/insights/gummy-01-multivitamin-and-minerals-gummy/* /products/gummies 301
+/insights/gummy-13-ashwagandha-gummy /products/gummies 301
+/insights/gummy-13-ashwagandha-gummy/* /products/gummies 301
+/insights/item-1-almonds /blog/item-1-almonds 301
+/insights/item-1-almonds/* /blog/item-1-almonds 301
+/insights/item-12-phool-makhana-6-suta /blog/item-12-phool-makhana-6-suta 301
+/insights/item-12-phool-makhana-6-suta/* /blog/item-12-phool-makhana-6-suta 301
+/insights/item-2-cashew-nuts-w320 /blog/item-2-cashew-nuts-w320 301
+/insights/item-2-cashew-nuts-w320/* /blog/item-2-cashew-nuts-w320 301
+/insights/item-28-psyllium-husk-99-percent-whole-husk /blog/item-28-psyllium-husk-99-whole-husk 301
+/insights/item-28-psyllium-husk-99-percent-whole-husk/* /blog/item-28-psyllium-husk-99-whole-husk 301
+/insights/item-44-cumin-seeds-jeera /blog/item-44-cumin-seeds-jeera 301
+/insights/item-44-cumin-seeds-jeera/* /blog/item-44-cumin-seeds-jeera 301
+/insights/item-51-turmeric-powder-haldi /blog/item-51-turmeric-powder-haldi 301
+/insights/item-51-turmeric-powder-haldi/* /blog/item-51-turmeric-powder-haldi 301
+/insights/item-71-moringa-leaf-powder /blog/item-71-moringa-leaf-powder 301
+/insights/item-71-moringa-leaf-powder/* /blog/item-71-moringa-leaf-powder 301
+/insights/item-72-chamomile-flowers /blog/item-72-chamomile-flowers 301
+/insights/item-72-chamomile-flowers/* /blog/item-72-chamomile-flowers 301
+/insights/item-73-hibiscus-flowers-roselle /blog/item-73-hibiscus-flowers-roselle 301
+/insights/item-73-hibiscus-flowers-roselle/* /blog/item-73-hibiscus-flowers-roselle 301
+/insights/* /blog 301
+
+# Old category filter URLs -> category pages
+/products cat=dry-fruits-nuts /products/dry-fruits-nuts 301!
+/products cat=makhana /products/makhana 301!
+/products cat=sattu-chana /products/sattu-chana 301!
+/products cat=isabgol /products/isabgol 301!
+/products cat=sweeteners /products/sweeteners 301!
+/products cat=whole-spices /products/whole-spices 301!
+/products cat=spice-powders /products/spice-powders 301!
+/products cat=dehydrated-vegetables /products/dehydrated-vegetables 301!
+/products cat=herbs-flowers /products/herbs-flowers 301!
+/products cat=seeds-grains /products/seeds-grains 301!
+/products cat=gummies /products/gummies 301!
+/products cat=stuffed-dates /stuffed-dates 301!

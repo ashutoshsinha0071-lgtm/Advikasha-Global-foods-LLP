@@ -1424,3 +1424,9 @@ h3{font-family:var(--font-head);font-weight:400;letter-spacing:-.005em;color:var
 .sl-hero-inner{pointer-events:none}
 .sl-hero-copy,.sl-pl-card{pointer-events:auto}
 .sl-hero-rot .ab-nav{z-index:3}
+
+.h1-kicker{display:block;font-family:var(--font-ui);font-size:clamp(.72rem,1.6vw,.85rem);font-weight:600;letter-spacing:.14em;text-transform:uppercase;line-height:1.5;color:var(--sl-gold-deep,#8A6A22);margin:0 0 .9rem;max-width:44ch}
+.cat-intro{max-width:72ch}.cat-intro h2{margin-top:1.6rem}.cat-intro ul{padding-left:1.2rem}.cat-intro li{margin:.3rem 0}.cat-links{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-top:1rem}
+.cat-side .cat-btn.is-link{text-decoration:none}
+
+main[dir="rtl"]{font-family:"Noto Sans Arabic","Segoe UI","Geeza Pro",Tahoma,var(--font-ui),sans-serif}main[dir="rtl"] h1,main[dir="rtl"] h2,main[dir="rtl"] h3{font-family:"Noto Naskh Arabic","Geeza Pro","Times New Roman",serif;line-height:1.35}main[dir="rtl"] .eyebrow,main[dir="rtl"] .tag{letter-spacing:0;text-transform:none}main[dir="rtl"] p,main[dir="rtl"] li,main[dir="rtl"] dd,main[dir="rtl"] summary{line-height:1.9}.lang-link{text-transform:none;letter-spacing:0}

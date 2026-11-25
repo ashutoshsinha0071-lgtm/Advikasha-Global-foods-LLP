@@ -278,3 +278,23 @@
   if(k&&t==='sample')k.value='Samples';
   var m=document.getElementById('f-msg');if(m&&t==='sample'&&!m.value)m.value='Sample request. Product: '+(new URLSearchParams(location.search).get('product')||'')+'\nDelivery address/city: ';
 })();
+
+/* ---------- analytics hooks (GA4 / GTM: fire when a tag is installed) ---------- */
+(function(){
+  function advTrack(name,params){
+    params=params||{};params.page_path=location.pathname;
+    try{if(typeof window.gtag==='function')window.gtag('event',name,params);}catch(e){}
+    try{(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:name},params));}catch(e){}
+  }
+  window.advTrack=advTrack;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'',ev=null;
+    if(/wa\.me\//.test(h))ev='whatsapp_click';else if(h.indexOf('tel:')===0)ev='phone_click';
+    else if(h.indexOf('mailto:')===0)ev='email_click';else if(/\.pdf($|\?)/i.test(h))ev='catalogue_download';
+    if(ev)advTrack(ev,{link_url:h.slice(0,200)});
+  },true);
+  document.addEventListener('submit',function(e){
+    var f=e.target;if(!f||!f.getAttribute)return;var n=f.getAttribute('name')||'form';
+    advTrack(n==='sample-order'?'begin_checkout':'generate_lead',{form_name:n});
+  },true);
+})();
